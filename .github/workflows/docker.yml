@@ -41,5 +41,5 @@ jobs:
         echo test, and deploy your project.
 
     - name: docker push
-        run: |
-          docker push ansible:centos:1.0.0
+      run: |
+        docker push ansible:centos:1.0.0
