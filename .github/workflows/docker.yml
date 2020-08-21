@@ -68,7 +68,7 @@ jobs:
     - name: Remove config.json
       run: |
         echo 'listing files & dirs'
-        ls -l /home/runner/.docker/config.json
-        echo 'cat out file content'
-        cat /home/runner/.docker/config.json
+        ls /home/runner/ -al
+        # echo 'cat out file content'
+        # cat /home/runner/.docker/config.json
         
