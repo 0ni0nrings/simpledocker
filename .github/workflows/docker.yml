@@ -63,12 +63,3 @@ jobs:
     #     echo 'Pushing image...'
     #     docker push strike3test/ansibleoncentos:1.0.0
     #     echo 'Done!'
-
-    # Remove config.json file which stores password unencrypted
-    - name: Remove config.json
-      run: |
-        echo 'listing files & dirs'
-        ls /home/runner/ -al
-        # echo 'cat out file content'
-        # cat /home/runner/.docker/config.json
-        
