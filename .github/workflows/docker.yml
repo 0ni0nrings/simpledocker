@@ -33,9 +33,10 @@ jobs:
     #     docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
     # Runs a single command using the runners shell
-    - name: docker build
-      run: |
-        docker build . -t strike3test/centos
+    # Using multi line script hence commented out
+    # - name: docker build
+    #   run: |
+    #     docker build . -t strike3test/ansibleoncentos:1.0.0
 
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
@@ -45,4 +46,20 @@ jobs:
 
     # - name: docker push
     #   run: |
-    #     docker push strike3test/centos:1.0.0
+    #     docker push strike3test/ansibleoncentos:1.0.0
+
+    # Build docker image and push in multi line script
+    # Create DOCKER_HUB & DOCKER_HUB_KEY under settings>secrets in GitHub
+    - name: docker build multi line
+      env:
+        DOCKER_HUB: ${{ secrets.DOCKER_HUB }}
+        DOCKER_HUB_KEY: ${{ secrets.DOCKER_HUB_KEY }}
+      run: |
+        ls -l
+        echo 'Docker login'
+        docker login -u $DOCKER_HUB -p $DOCKER_HUB_KEY
+        echo 'Running build...'
+        docker build . -t strike3test/ansibleoncentos:1.0.0
+        echo 'Pushing image...'
+        docker push strike3test/ansibleoncentos:1.0.0
+        echo 'Done!'
