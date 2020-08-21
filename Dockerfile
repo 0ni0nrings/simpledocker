@@ -14,5 +14,4 @@ RUN pip install boto; \
     pip install botocore; \
     pip install pywinrm; \
     pip install --upgrade awscli
-
-echo "build done"
+    
